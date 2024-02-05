@@ -1,27 +1,33 @@
 void main() {
-  var c = Complex(2, 5);
-  c.imaginary = 2;
-  c.real = 5;
+  // var c = Complex(2, 5);
+  // c.imaginary = 2;
+  // c.real = 5;
 
-  var c2 = Complex(3, 7)
-    ..imaginary = 3
-    ..real = 7;
+  // var c2 = Complex(3, 7)
+  //   ..imaginary = 3
+  //   ..real = 7;
+
+  var r = Complex.real(5);
+  print("r is ${r.toString()}");
+
+  var i = Complex.imaginary(5);
+  print("i is ${i.toString()}");
 
 //   print("${c.real} + ${c.imaginary}i");
-  print(c.toString());
+  // print(c.toString());
 
-  c2.set_real = 20;
-  print(c2.get_real);
+  // c2.real = 20;
+  // print(c2.real);
 }
 
 class Complex {
-  late num real;
-  late num imaginary;
-
   late num _real;
   late num _imaginary;
 
   Complex(this._real, this._imaginary);
+
+  Complex.real(num real) : this(real, 0);
+  Complex.imaginary(num imaginary) : this(0, imaginary);
 
 //   num getReal() {
 //     return _real;
@@ -31,18 +37,26 @@ class Complex {
 //     return _imaginary;
 //   }
 
-  get get_real => _real;
-  set set_real(num value) => _real = value;
+  num get real => _real;
+  set real(num value) => _real = value;
 
-  get get_imaginary => _imaginary;
-  set set_imaginary(num value) => _imaginary = value;
+  num get imaginary => _imaginary;
+  set imaginary(num value) => imaginary = value;
 
   void setReal(num real) {
-    this._real = real;
+    this.real = real;
   }
 
   void setImaginary(num imaginary) {
-    this._imaginary = imaginary;
+    this.imaginary = imaginary;
+  }
+
+  @override
+  bool operator ==(other) {
+    if (!(other is Complex)) {
+      return false;
+    }
+    return this._real == other._real && this._imaginary == other._imaginary;
   }
 
   @override
