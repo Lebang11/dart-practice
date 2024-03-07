@@ -7,6 +7,7 @@ void main() {
   bool t = true;
   bool f = false;
 
+  // ignore: dead_code
   if (!t) {
     print("It was True");
   } else {
@@ -23,15 +24,15 @@ void main() {
 
   int g = 10;
 
-  // while ( g > 0) {
-  //   print(g);
-  //   g--;
-  // }
+  while (g > 0) {
+    print(g);
+    g--;
+  }
 
-  // do {
-  //   print("$g");
-  //   g--;
-  // } while (g > 1);
+  do {
+    print("$g");
+    g--;
+  } while (g > 1);
 
   for (int h = 10; h > 1; h--) {
     print(h);
@@ -39,4 +40,3 @@ void main() {
 }
 
 //dynamic -> Generalizes all Types
-//Object -> All Types are derived from Object
